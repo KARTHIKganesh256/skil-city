@@ -18,7 +18,7 @@ CREATE TYPE "CustomRequestStatus" AS ENUM ('PENDING', 'QUOTED', 'ACCEPTED', 'IN_
 
 -- Create User table
 CREATE TABLE "User" (
-    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (cuid()),
+    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (uuid_generate_v4()::text),
     "name" TEXT,
     "email" TEXT NOT NULL UNIQUE,
     "phone" TEXT,
@@ -31,7 +31,7 @@ CREATE TABLE "User" (
 
 -- Create Region table
 CREATE TABLE "Region" (
-    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (cuid()),
+    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (uuid_generate_v4()::text),
     "name" TEXT NOT NULL UNIQUE,
     "state" TEXT,
     "description" TEXT,
@@ -43,7 +43,7 @@ CREATE TABLE "Region" (
 
 -- Create Saree table
 CREATE TABLE "Saree" (
-    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (cuid()),
+    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (uuid_generate_v4()::text),
     "title" TEXT NOT NULL,
     "regionId" TEXT NOT NULL,
     "type" TEXT NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE "Saree" (
 
 -- Create Offer table
 CREATE TABLE "Offer" (
-    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (cuid()),
+    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (uuid_generate_v4()::text),
     "sareeId" TEXT NOT NULL,
     "buyerId" TEXT NOT NULL,
     "offerAmount" DOUBLE PRECISION NOT NULL,
@@ -75,7 +75,7 @@ CREATE TABLE "Offer" (
 
 -- Create Order table
 CREATE TABLE "Order" (
-    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (cuid()),
+    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (uuid_generate_v4()::text),
     "userId" TEXT NOT NULL,
     "totalAmount" DOUBLE PRECISION NOT NULL,
     "paymentStatus" "PaymentStatus" NOT NULL DEFAULT 'PENDING',
@@ -91,7 +91,7 @@ CREATE TABLE "Order" (
 
 -- Create OrderItem table
 CREATE TABLE "OrderItem" (
-    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (cuid()),
+    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (uuid_generate_v4()::text),
     "orderId" TEXT NOT NULL,
     "sareeId" TEXT NOT NULL,
     "quantity" INTEGER NOT NULL DEFAULT 1,
@@ -101,7 +101,7 @@ CREATE TABLE "OrderItem" (
 
 -- Create CustomRequest table
 CREATE TABLE "CustomRequest" (
-    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (cuid()),
+    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (uuid_generate_v4()::text),
     "userId" TEXT NOT NULL,
     "designDetails" TEXT NOT NULL,
     "borderChoice" TEXT,
@@ -115,7 +115,7 @@ CREATE TABLE "CustomRequest" (
 
 -- Create AdBanner table
 CREATE TABLE "AdBanner" (
-    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (cuid()),
+    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (uuid_generate_v4()::text),
     "imageUrl" TEXT NOT NULL,
     "link" TEXT,
     "position" TEXT NOT NULL DEFAULT 'hero',
@@ -127,7 +127,7 @@ CREATE TABLE "AdBanner" (
 
 -- Create WorkshopGallery table
 CREATE TABLE "WorkshopGallery" (
-    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (cuid()),
+    "id" TEXT NOT NULL PRIMARY KEY DEFAULT (uuid_generate_v4()::text),
     "regionId" TEXT NOT NULL,
     "title" TEXT NOT NULL,
     "images" TEXT[] DEFAULT '{}',
