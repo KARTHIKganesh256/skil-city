@@ -1,0 +1,185 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  phone         String?
+  role          Role      @default(CUSTOMER)
+  passwordHash  String?
+  addresses     Json[]    @default([])
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  orders        Order[]
+  offers        Offer[]
+  customRequests CustomRequest[]
+}
+
+enum Role {
+  CUSTOMER
+  SELLER
+  ADMIN
+}
+
+model Region {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  state       String?
+  description String?  @db.Text
+  imageUrl    String?
+  featured    Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  sarees      Saree[]
+  galleries   WorkshopGallery[]
+}
+
+model Saree {
+  id                String   @id @default(cuid())
+  title             String
+  regionId          String
+  type              String
+  fabric            String?
+  characteristics   String?  @db.Text
+  price             Float
+  mrp               Float?
+  stock             Int      @default(0)
+  images            String[] @default([])
+  isBargainAllowed  Boolean  @default(false)
+  polishPrice       Float?
+  isCustomAvailable Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  region            Region   @relation(fields: [regionId], references: [id], onDelete: Cascade)
+  offers            Offer[]
+  orderItems        OrderItem[]
+}
+
+model Offer {
+  id            String      @id @default(cuid())
+  sareeId       String
+  buyerId       String
+  offerAmount   Float
+  status        OfferStatus @default(PENDING)
+  adminComment  String?     @db.Text
+  counterAmount Float?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  
+  saree         Saree       @relation(fields: [sareeId], references: [id], onDelete: Cascade)
+  buyer         User        @relation(fields: [buyerId], references: [id], onDelete: Cascade)
+}
+
+enum OfferStatus {
+  PENDING
+  ACCEPTED
+  COUNTERED
+  DECLINED
+}
+
+model Order {
+  id              String         @id @default(cuid())
+  userId          String
+  totalAmount     Float
+  paymentStatus   PaymentStatus  @default(PENDING)
+  shippingStatus  ShippingStatus @default(PLACED)
+  shippingProvider String?
+  trackingNo      String?
+  razorpayOrderId String?
+  razorpayPaymentId String?
+  shippingAddress Json?
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  
+  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items           OrderItem[]
+}
+
+model OrderItem {
+  id              String  @id @default(cuid())
+  orderId         String
+  sareeId         String
+  quantity        Int     @default(1)
+  price           Float
+  polishSelected  Boolean @default(false)
+  
+  order           Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  saree           Saree   @relation(fields: [sareeId], references: [id], onDelete: Restrict)
+}
+
+enum PaymentStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum ShippingStatus {
+  PLACED
+  PROCESSING
+  SHIPPED
+  IN_TRANSIT
+  DELIVERED
+  RETURNED
+}
+
+model CustomRequest {
+  id             String              @id @default(cuid())
+  userId         String
+  designDetails  String              @db.Text
+  borderChoice   String?
+  palluChoice    String?
+  status         CustomRequestStatus @default(PENDING)
+  quoteAmount    Float?
+  etaDays        Int?
+  createdAt      DateTime            @default(now())
+  updatedAt      DateTime            @updatedAt
+  
+  user           User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+enum CustomRequestStatus {
+  PENDING
+  QUOTED
+  ACCEPTED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+model AdBanner {
+  id         String   @id @default(cuid())
+  imageUrl   String
+  link       String?
+  position   String   @default("hero")
+  activeFrom DateTime @default(now())
+  activeTo   DateTime?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model WorkshopGallery {
+  id          String   @id @default(cuid())
+  regionId    String
+  title       String
+  images      String[] @default([])
+  description String?  @db.Text
+  videoUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  region      Region   @relation(fields: [regionId], references: [id], onDelete: Cascade)
+}
