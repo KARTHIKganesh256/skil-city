@@ -25,7 +25,7 @@ async function getRegions() {
       return regions;
     }
 
-    // Fallback sample data
+    // Fallback sample data - All regions from seed file
     return [
       {
         id: "dharmavaram",
@@ -55,6 +55,51 @@ async function getRegions() {
         _count: { sarees: 32 }
       },
       {
+        id: "maharashtra",
+        name: "Maharashtra",
+        state: "Maharashtra",
+        description: "Home of the exquisite Paithani. Pure silk, opulent pallu with peacock and nature-inspired motifs.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 20 }
+      },
+      {
+        id: "gujarat-rajasthan",
+        name: "Gujarat & Rajasthan",
+        state: "Gujarat",
+        description: "Home of the exquisite Bandhani / Bandhej. Vibrant dotted patterns created by tie-and-dye technique.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 22 }
+      },
+      {
+        id: "odisha",
+        name: "Odisha",
+        state: "Odisha",
+        description: "Home of the exquisite Sambalpuri Ikat. Intricate Ikat patterns on warp and weft before weaving.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 12 }
+      },
+      {
+        id: "west-bengal",
+        name: "West Bengal",
+        state: "West Bengal",
+        description: "Home of the exquisite Tant / Taant. Lightweight crisp cotton with decorative borders.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 8 }
+      },
+      {
+        id: "chanderi",
+        name: "Chanderi, Madhya Pradesh",
+        state: "Madhya Pradesh",
+        description: "Home of the exquisite Chanderi. Sheer texture, lightweight, blend of silk and cotton/zari.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 14 }
+      },
+      {
         id: "mysore",
         name: "Mysore, Karnataka",
         state: "Karnataka",
@@ -62,6 +107,51 @@ async function getRegions() {
         imageUrl: null,
         featured: false,
         _count: { sarees: 15 }
+      },
+      {
+        id: "kerala",
+        name: "Kerala",
+        state: "Kerala",
+        description: "Home of the exquisite Kasavu / Set Mundu. Off-white or cream cotton/silk with golden border.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 10 }
+      },
+      {
+        id: "gujarat-patola",
+        name: "Gujarat",
+        state: "Gujarat",
+        description: "Home of the exquisite Patola. Complex double-Ikat weave with vibrant geometric designs.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 6 }
+      },
+      {
+        id: "assam",
+        name: "Assam",
+        state: "Assam",
+        description: "Home of the exquisite Muga Silk. Natural golden sheen, high durability, heirloom quality.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 8 }
+      },
+      {
+        id: "pochampally",
+        name: "Pochampally, Telangana",
+        state: "Telangana",
+        description: "Home of the exquisite Pochampally Ikat. Silk/cotton sarees with geometric Ikat patterns.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 12 }
+      },
+      {
+        id: "lucknow",
+        name: "Lucknow, Uttar Pradesh",
+        state: "Uttar Pradesh",
+        description: "Home of the exquisite Chikankari. Delicate white thread hand embroidery on fine cotton or georgette.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 16 }
       }
     ];
   } catch (error) {
@@ -85,6 +175,114 @@ async function getRegions() {
         imageUrl: null,
         featured: true,
         _count: { sarees: 18 }
+      },
+      {
+        id: "varanasi",
+        name: "Varanasi, Uttar Pradesh",
+        state: "Uttar Pradesh",
+        description: "Home of the exquisite Banarasi Saree. Fine silk, intricate gold/silver brocade or zari work, opulent, often used for bridal wear.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 32 }
+      },
+      {
+        id: "maharashtra",
+        name: "Maharashtra",
+        state: "Maharashtra",
+        description: "Home of the exquisite Paithani. Pure silk, opulent pallu with peacock and nature-inspired motifs.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 20 }
+      },
+      {
+        id: "gujarat-rajasthan",
+        name: "Gujarat & Rajasthan",
+        state: "Gujarat",
+        description: "Home of the exquisite Bandhani / Bandhej. Vibrant dotted patterns created by tie-and-dye technique.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 22 }
+      },
+      {
+        id: "odisha",
+        name: "Odisha",
+        state: "Odisha",
+        description: "Home of the exquisite Sambalpuri Ikat. Intricate Ikat patterns on warp and weft before weaving.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 12 }
+      },
+      {
+        id: "west-bengal",
+        name: "West Bengal",
+        state: "West Bengal",
+        description: "Home of the exquisite Tant / Taant. Lightweight crisp cotton with decorative borders.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 8 }
+      },
+      {
+        id: "chanderi",
+        name: "Chanderi, Madhya Pradesh",
+        state: "Madhya Pradesh",
+        description: "Home of the exquisite Chanderi. Sheer texture, lightweight, blend of silk and cotton/zari.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 14 }
+      },
+      {
+        id: "mysore",
+        name: "Mysore, Karnataka",
+        state: "Karnataka",
+        description: "Home of the exquisite Mysore Silk. Soft texture, rich luster, minimalistic design with gold zari border.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 15 }
+      },
+      {
+        id: "kerala",
+        name: "Kerala",
+        state: "Kerala",
+        description: "Home of the exquisite Kasavu / Set Mundu. Off-white or cream cotton/silk with golden border.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 10 }
+      },
+      {
+        id: "gujarat-patola",
+        name: "Gujarat",
+        state: "Gujarat",
+        description: "Home of the exquisite Patola. Complex double-Ikat weave with vibrant geometric designs.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 6 }
+      },
+      {
+        id: "assam",
+        name: "Assam",
+        state: "Assam",
+        description: "Home of the exquisite Muga Silk. Natural golden sheen, high durability, heirloom quality.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 8 }
+      },
+      {
+        id: "pochampally",
+        name: "Pochampally, Telangana",
+        state: "Telangana",
+        description: "Home of the exquisite Pochampally Ikat. Silk/cotton sarees with geometric Ikat patterns.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 12 }
+      },
+      {
+        id: "lucknow",
+        name: "Lucknow, Uttar Pradesh",
+        state: "Uttar Pradesh",
+        description: "Home of the exquisite Chikankari. Delicate white thread hand embroidery on fine cotton or georgette.",
+        imageUrl: null,
+        featured: false,
+        _count: { sarees: 16 }
       }
     ];
   }
