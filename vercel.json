@@ -4,8 +4,7 @@
   "installCommand": "npm install",
   "framework": "nextjs",
   "outputDirectory": ".next",
-  "regions": ["iad1"],
-  "rootDirectory": "silkcity"
+  "regions": ["iad1"]
 }
 
 
