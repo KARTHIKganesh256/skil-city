@@ -71,3 +71,4 @@ console.log('2. Run: npx prisma db push');
 console.log('3. Run: npm run db:seed');
 console.log('4. Run: npm run dev');
 console.log('\nFor detailed instructions, see SUPABASE_SETUP.md');
+

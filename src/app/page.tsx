@@ -5,7 +5,7 @@ import { RegionCard } from "@/components/RegionCard";
 interface Region {
   id: string;
   name: string;
-  state: string;
+  state: string | null;
   description: string | null;
   imageUrl: string | null;
   featured: boolean;

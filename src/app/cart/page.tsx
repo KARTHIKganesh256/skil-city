@@ -25,7 +25,7 @@ export default function CartPage() {
     removeFromCart(id);
   };
 
-  const handleMoveToFavorites = (item: any) => {
+  const handleMoveToFavorites = (item: {sareeId: string; name: string; price: number; image: string}) => {
     addToFavorites({
       id: item.sareeId,
       name: item.name,
@@ -34,7 +34,7 @@ export default function CartPage() {
       region: "Dharmavaram", // You might want to get this from the item
       type: "Silk"
     });
-    removeFromCart(item.id);
+    removeFromCart(item.sareeId);
   };
 
   const handleCheckout = async () => {

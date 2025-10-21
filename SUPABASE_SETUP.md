@@ -102,3 +102,4 @@ Your SilkCity database includes:
 2. **Set up authentication** with Supabase Auth
 3. **Configure payment integration** (Razorpay)
 4. **Deploy to production** (Vercel + Supabase)
+

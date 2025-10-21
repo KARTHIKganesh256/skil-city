@@ -44,23 +44,21 @@ interface State {
 
 interface Saree {
   id: string;
-  name: string;
-  description: string;
-  price: number;
-  originalPrice?: number;
-  images: string[];
-  region: {
-    name: string;
-    state: string;
-  };
+  title: string;
   type: string;
-  material: string;
-  color: string;
-  rating: number;
-  reviewCount: number;
-  availability: 'in-stock' | 'out-of-stock' | 'pre-order';
-  isCustomizable: boolean;
-  isBargainable: boolean;
+  price: number;
+  mrp: number | null;
+  stock: number;
+  images: string[];
+  isBargainAllowed: boolean;
+  isCustomAvailable: boolean;
+  region: {
+    id: string;
+    name: string;
+    state: string | null;
+  };
+  characteristics?: string;
+  fabric?: string;
 }
 
 export default function SareesPage() {
@@ -116,18 +114,18 @@ export default function SareesPage() {
 
   const filteredSarees = sarees.filter(saree => {
     // Safe string checks with fallbacks
-    const sareeName = saree.name || '';
-    const sareeDescription = saree.description || '';
+    const sareeTitle = saree.title || '';
+    const sareeCharacteristics = saree.characteristics || '';
     const regionName = saree.region?.name || '';
     const sareeType = saree.type || '';
     const regionState = saree.region?.state || '';
     
-    const matchesSearch = sareeName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         sareeDescription.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    const matchesSearch = sareeTitle.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         sareeCharacteristics.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          regionName.toLowerCase().includes(searchTerm.toLowerCase());
     
     const matchesType = !selectedType || selectedType === "all" || sareeType.toLowerCase().includes(selectedType.toLowerCase());
-    const matchesState = !selectedState || selectedState === "all" || regionState.toLowerCase().includes(selectedState.toLowerCase());
+    const matchesState = !selectedState || selectedState === "all" || (regionState && regionState.toLowerCase().includes(selectedState.toLowerCase()));
     
     let matchesPrice = true;
     if (priceRange && priceRange !== "all") {
@@ -145,7 +143,7 @@ export default function SareesPage() {
       case 'price-high':
         return b.price - a.price;
       case 'rating':
-        return b.rating - a.rating;
+        return 0; // Rating not available in current schema
       case 'newest':
         return b.id.localeCompare(a.id);
       default:
@@ -156,11 +154,11 @@ export default function SareesPage() {
   const handleAddToCart = (saree: Saree) => {
     addToCart({
       sareeId: saree.id,
-      name: saree.name,
+      name: saree.title,
       price: saree.price,
-      image: saree.images[0],
+      image: saree.images[0] || '/placeholder-saree.jpg',
       selectedSize: "6m",
-      selectedColor: saree.color,
+      selectedColor: saree.fabric || "Default",
       customizations: {
         blouse: "",
         pallu: "",
@@ -176,9 +174,9 @@ export default function SareesPage() {
     if (saree) {
       addToFavorites({
         id: saree.id,
-        name: saree.name,
+        name: saree.title,
         price: saree.price,
-        image: saree.images[0],
+        image: saree.images[0] || '/placeholder-saree.jpg',
         region: saree.region.name,
         type: saree.type
       });

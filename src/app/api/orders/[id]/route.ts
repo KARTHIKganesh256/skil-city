@@ -5,17 +5,17 @@ const prisma = new PrismaClient();
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const order = await prisma.order.findUnique({
-      where: { id: params.id },
+      where: { id },
       include: {
         items: {
           include: {
             saree: {
               include: {
-                images: true,
                 region: true
               }
             }
@@ -51,14 +51,15 @@ export async function GET(
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    const { id } = await params;
     const body = await request.json();
     const { status, trackingNumber, notes } = body;
 
     const order = await prisma.order.update({
-      where: { id: params.id },
+      where: { id },
       data: {
         ...(status && { status }),
         ...(trackingNumber && { trackingNumber }),
@@ -69,7 +70,6 @@ export async function PATCH(
           include: {
             saree: {
               include: {
-                images: true,
                 region: true
               }
             }

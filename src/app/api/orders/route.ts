@@ -22,7 +22,6 @@ export async function GET(request: NextRequest) {
           include: {
             saree: {
               include: {
-                images: true,
                 region: true
               }
             }
@@ -81,16 +80,15 @@ export async function POST(request: NextRequest) {
       data: {
         userId,
         totalAmount,
-        status: 'PENDING',
+        paymentStatus: 'PENDING',
+        shippingStatus: 'PLACED',
         shippingAddress: shippingAddress || null,
-        paymentMethod: paymentMethod || 'RAZORPAY',
         items: {
-          create: items.map((item: {sareeId: string; quantity: number; price: number; size?: string; customizations?: string}) => ({
+          create: items.map((item: {sareeId: string; quantity: number; price: number; polishSelected?: boolean}) => ({
             sareeId: item.sareeId,
             quantity: item.quantity,
             price: item.price,
-            size: item.size || null,
-            customizations: item.customizations || null
+            polishSelected: item.polishSelected || false
           }))
         }
       },
@@ -99,7 +97,6 @@ export async function POST(request: NextRequest) {
           include: {
             saree: {
               include: {
-                images: true,
                 region: true
               }
             }

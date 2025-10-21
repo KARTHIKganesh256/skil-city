@@ -148,9 +148,10 @@ export async function GET(request: NextRequest) {
       ];
     }
     if (minPrice || maxPrice) {
-      where.price = {};
-      if (minPrice) where.price.gte = parseFloat(minPrice);
-      if (maxPrice) where.price.lte = parseFloat(maxPrice);
+      where.price = {
+        ...(minPrice && { gte: parseFloat(minPrice) }),
+        ...(maxPrice && { lte: parseFloat(maxPrice) })
+      };
     }
 
     // Fetch sarees with pagination

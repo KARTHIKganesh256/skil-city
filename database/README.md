@@ -124,3 +124,4 @@ If you encounter any issues:
 4. Check the browser console for errors
 
 Your SilkCity database is now ready with all 14 regions and sample sarees! 🎉
+

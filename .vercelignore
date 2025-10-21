@@ -1,0 +1,13 @@
+node_modules
+.env*.local
+.git
+.vscode
+*.log
+.DS_Store
+prisma/migrations
+database
+scripts
+*.md
+!README.md
+
+
