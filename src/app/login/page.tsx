@@ -26,8 +26,8 @@ export default function LoginPage() {
     try {
       const success = await login(email, password);
       if (success) {
-        toast.success("Logged in successfully!");
-        router.push("/");
+      toast.success("Logged in successfully!");
+      router.push("/");
       } else {
         toast.error("Invalid credentials");
       }
@@ -44,7 +44,7 @@ export default function LoginPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/weaving.jpg')",
+            backgroundImage: "url('/login.jpg'), url('/weaving.jpg'), url('/login-bg.svg'), linear-gradient(135deg, #065f46 0%, #be185d 50%, #064e3b 100%)",
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}
@@ -188,17 +188,27 @@ export default function LoginPage() {
 
       {/* Central Login Form */}
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
-        <motion.div
+      <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, type: "spring" }}
-          className="w-full max-w-md"
-        >
+        className="w-full max-w-md"
+      >
           {/* Main Login Container */}
           <div className="relative">
             {/* Golden ornate border */}
             <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-400 rounded-3xl blur-sm opacity-80"></div>
-            <div className="relative bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 rounded-3xl p-8 shadow-2xl">
+            <div 
+              className="relative rounded-3xl p-8 shadow-2xl bg-cover bg-center bg-no-repeat"
+              style={{
+                backgroundImage: "url('/weaving.jpg'), url('/login.jpg')",
+                backgroundSize: "cover",
+                backgroundPosition: "center"
+              }}
+            >
+              {/* Semi-transparent overlay for better text readability */}
+              <div className="absolute inset-0 bg-white bg-opacity-80 rounded-3xl"></div>
+              <div className="relative z-10">
                 {/* Header with decorative elements */}
                 <div className="text-center mb-8">
                   <div className="flex items-center justify-center mb-6">
@@ -212,7 +222,7 @@ export default function LoginPage() {
 
               <form onSubmit={handleLogin} className="space-y-6">
                 {/* Username/Email Field */}
-                <div className="space-y-2">
+              <div className="space-y-2">
                   <Label htmlFor="email" className="text-sm font-semibold text-gray-700">
                     USERNAME OR EMAIL
                   </Label>
@@ -225,21 +235,21 @@ export default function LoginPage() {
                     className="h-12 rounded-xl border-2 border-yellow-300 focus:border-yellow-500 bg-white/80 backdrop-blur-sm"
                     required
                   />
-                </div>
+              </div>
 
                 {/* Password Field */}
-                <div className="space-y-2">
+              <div className="space-y-2">
                   <Label htmlFor="password" className="text-sm font-semibold text-gray-700">
                     PASSWORD
                   </Label>
-                  <div className="relative">
-                    <Input
-                      id="password"
+                <div className="relative">
+                  <Input
+                    id="password"
                       type={showPassword ? "text" : "password"}
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                       className="h-12 rounded-xl border-2 border-yellow-300 focus:border-yellow-500 bg-white/80 backdrop-blur-sm pr-12"
-                      required
+                    required
                     />
                     <button
                       type="button"
@@ -262,17 +272,17 @@ export default function LoginPage() {
                   <Label htmlFor="remember" className="text-sm font-medium text-gray-700">
                     REMEMBER ME
                   </Label>
-                </div>
+              </div>
 
                 {/* Login Button */}
-                <Button
-                  type="submit"
-                  disabled={loading}
+              <Button
+                type="submit"
+                disabled={loading}
                   className="w-full h-14 rounded-xl bg-gradient-to-r from-pink-500 via-rose-500 to-emerald-500 hover:from-pink-600 hover:via-rose-600 hover:to-emerald-600 text-white font-bold text-lg shadow-lg transform hover:scale-105 transition-all duration-200"
-                >
+              >
                   {loading ? "SIGNING IN..." : "LOGIN"}
-                </Button>
-              </form>
+              </Button>
+            </form>
 
               {/* Social Login Section */}
               <div className="mt-8 text-center">
@@ -300,7 +310,7 @@ export default function LoginPage() {
                     SIGN UP
                   </Link>
                 </div>
-              </div>
+            </div>
 
               {/* Footer */}
               <div className="mt-6 text-center">
@@ -308,9 +318,10 @@ export default function LoginPage() {
                   DON'T HAVE ACCOUNT? SIGN UP
                 </p>
               </div>
+              </div>
             </div>
           </div>
-        </motion.div>
+      </motion.div>
       </div>
     </div>
   );

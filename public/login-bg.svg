@@ -1,0 +1,60 @@
+<svg width="1920" height="1080" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="leftGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#065f46;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#047857;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#064e3b;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="rightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#be185d;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#be123c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9f1239;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Left side - Green background -->
+  <rect x="0" y="0" width="960" height="1080" fill="url(#leftGradient)"/>
+  
+  <!-- Right side - Magenta background -->
+  <rect x="960" y="0" width="960" height="1080" fill="url(#rightGradient)"/>
+  
+  <!-- Traditional patterns on left side -->
+  <g opacity="0.3" fill="none" stroke="#fbbf24" stroke-width="2">
+    <!-- Peacock patterns -->
+    <circle cx="200" cy="200" r="80" stroke-dasharray="5,5"/>
+    <circle cx="150" cy="300" r="60" stroke-dasharray="3,3"/>
+    <circle cx="250" cy="400" r="70" stroke-dasharray="4,4"/>
+    
+    <!-- Lotus patterns -->
+    <g transform="translate(300, 250)">
+      <circle cx="0" cy="0" r="30"/>
+      <circle cx="0" cy="0" r="20"/>
+      <circle cx="0" cy="0" r="10"/>
+    </g>
+    
+    <!-- Mandala patterns -->
+    <g transform="translate(400, 500)">
+      <circle cx="0" cy="0" r="50"/>
+      <circle cx="0" cy="0" r="35"/>
+      <circle cx="0" cy="0" r="20"/>
+    </g>
+  </g>
+  
+  <!-- Traditional patterns on right side -->
+  <g opacity="0.3" fill="none" stroke="#fbbf24" stroke-width="2">
+    <!-- Dancer silhouettes -->
+    <ellipse cx="1200" cy="200" rx="40" ry="80"/>
+    <ellipse cx="1400" cy="400" rx="35" ry="70"/>
+    
+    <!-- Lotus patterns -->
+    <g transform="translate(1500, 300)">
+      <circle cx="0" cy="0" r="25"/>
+      <circle cx="0" cy="0" r="15"/>
+      <circle cx="0" cy="0" r="8"/>
+    </g>
+    
+    <!-- Paisley patterns -->
+    <path d="M1600,600 Q1650,580 1700,600 Q1650,620 1600,600" stroke-dasharray="2,2"/>
+    <path d="M1700,700 Q1750,680 1800,700 Q1750,720 1700,700" stroke-dasharray="2,2"/>
+  </g>
+</svg>
