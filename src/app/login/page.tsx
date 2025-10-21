@@ -40,91 +40,147 @@ export default function LoginPage() {
     <div className="min-h-screen relative overflow-hidden">
       {/* Background with traditional patterns */}
       <div className="absolute inset-0">
-          {/* Left side - Green background with enhanced peacock patterns */}
-          <div className="absolute left-0 top-0 w-1/2 h-full bg-gradient-to-br from-emerald-800 via-emerald-700 to-emerald-900">
-            <div className="absolute inset-0 opacity-25">
-              {/* Enhanced Peacock patterns with more detail */}
-              <div className="absolute top-10 left-10 w-32 h-32 border-2 border-yellow-400 rounded-full opacity-70">
-                <div className="absolute inset-2 border border-yellow-300 rounded-full opacity-50"></div>
-                <div className="absolute inset-4 border border-yellow-200 rounded-full opacity-40"></div>
-              </div>
-              <div className="absolute top-20 left-20 w-24 h-24 border border-yellow-400 rounded-full opacity-50">
-                <div className="absolute inset-1 border border-yellow-300 rounded-full opacity-40"></div>
-              </div>
-              <div className="absolute top-40 left-16 w-20 h-20 border border-yellow-400 rounded-full opacity-60">
-                <div className="absolute inset-1 border border-yellow-300 rounded-full opacity-50"></div>
-              </div>
-              <div className="absolute top-60 left-8 w-28 h-28 border-2 border-yellow-400 rounded-full opacity-40">
-                <div className="absolute inset-2 border border-yellow-300 rounded-full opacity-30"></div>
-                <div className="absolute inset-4 border border-yellow-200 rounded-full opacity-20"></div>
-              </div>
-              <div className="absolute top-80 left-24 w-16 h-16 border border-yellow-400 rounded-full opacity-70">
-                <div className="absolute inset-1 border border-yellow-300 rounded-full opacity-50"></div>
-              </div>
-              
-              {/* Enhanced Lotus patterns with petals */}
-              <div className="absolute top-32 left-32 w-12 h-12 border border-yellow-400 transform rotate-45 opacity-60">
-                <div className="absolute inset-1 border border-yellow-300 transform rotate-45 opacity-40"></div>
-              </div>
-              <div className="absolute top-52 left-40 w-8 h-8 border border-yellow-400 transform rotate-45 opacity-50">
-                <div className="absolute inset-1 border border-yellow-300 transform rotate-45 opacity-30"></div>
-              </div>
-              <div className="absolute top-72 left-32 w-10 h-10 border border-yellow-400 transform rotate-45 opacity-70">
-                <div className="absolute inset-1 border border-yellow-300 transform rotate-45 opacity-50"></div>
-              </div>
-              
-              {/* Additional traditional motifs */}
-              <div className="absolute top-100 left-12 w-6 h-6 border border-yellow-400 transform rotate-12 opacity-40"></div>
-              <div className="absolute top-120 left-36 w-4 h-4 border border-yellow-400 transform rotate-45 opacity-50"></div>
-              <div className="absolute top-140 left-20 w-8 h-8 border border-yellow-400 rounded-full opacity-30"></div>
-            </div>
-          </div>
+        {/* Try to use the login background image if it exists, otherwise use CSS patterns */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/login.jpg')",
+            backgroundSize: "cover",
+            backgroundPosition: "center"
+          }}
+        >
+          {/* Fallback: Enhanced traditional patterns if image not found */}
+          <div className="absolute inset-0">
+            {/* Left side - Green background with detailed peacock patterns */}
+            <div className="absolute left-0 top-0 w-1/2 h-full bg-gradient-to-br from-emerald-800 via-emerald-700 to-emerald-900">
+              <div className="absolute inset-0 opacity-30">
+                {/* Detailed Peacock with elaborate tail */}
+                <div className="absolute top-8 left-8 w-40 h-40">
+                  {/* Peacock body */}
+                  <div className="absolute top-4 left-4 w-8 h-12 bg-yellow-400 rounded-full opacity-60"></div>
+                  {/* Peacock head */}
+                  <div className="absolute top-2 left-6 w-4 h-4 bg-yellow-400 rounded-full opacity-70"></div>
+                  {/* Elaborate tail with multiple feathers */}
+                  <div className="absolute top-8 left-12 w-24 h-32">
+                    {/* Main tail feathers */}
+                    <div className="absolute top-0 left-0 w-20 h-4 border-2 border-yellow-400 rounded-full opacity-60 transform rotate-12"></div>
+                    <div className="absolute top-2 left-2 w-18 h-4 border-2 border-yellow-400 rounded-full opacity-50 transform rotate-8"></div>
+                    <div className="absolute top-4 left-4 w-16 h-4 border-2 border-yellow-400 rounded-full opacity-60 transform rotate-4"></div>
+                    <div className="absolute top-6 left-6 w-14 h-4 border-2 border-yellow-400 rounded-full opacity-50 transform rotate-2"></div>
+                    <div className="absolute top-8 left-8 w-12 h-4 border-2 border-yellow-400 rounded-full opacity-60"></div>
+                    {/* Tail feather eyes */}
+                    <div className="absolute top-2 left-8 w-3 h-3 border border-yellow-300 rounded-full opacity-70"></div>
+                    <div className="absolute top-4 left-10 w-2 h-2 border border-yellow-300 rounded-full opacity-60"></div>
+                    <div className="absolute top-6 left-12 w-2 h-2 border border-yellow-300 rounded-full opacity-50"></div>
+                  </div>
+                </div>
+                
+                {/* Second Peacock */}
+                <div className="absolute top-60 left-12 w-32 h-32">
+                  <div className="absolute top-2 left-2 w-6 h-10 bg-yellow-400 rounded-full opacity-50"></div>
+                  <div className="absolute top-0 left-4 w-4 h-4 bg-yellow-400 rounded-full opacity-60"></div>
+                  <div className="absolute top-4 left-8 w-16 h-20">
+                    <div className="absolute top-0 left-0 w-12 h-3 border-2 border-yellow-400 rounded-full opacity-50 transform rotate-15"></div>
+                    <div className="absolute top-2 left-2 w-10 h-3 border-2 border-yellow-400 rounded-full opacity-40 transform rotate-10"></div>
+                    <div className="absolute top-4 left-4 w-8 h-3 border-2 border-yellow-400 rounded-full opacity-50 transform rotate-5"></div>
+                  </div>
+                </div>
 
-          {/* Right side - Magenta background with enhanced dancer patterns */}
-          <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-br from-rose-800 via-pink-700 to-rose-900">
-            <div className="absolute inset-0 opacity-25">
-              {/* Enhanced Dancer silhouettes with more detail */}
-              <div className="absolute top-16 right-16 w-20 h-32 border-2 border-yellow-400 rounded-full opacity-60">
-                <div className="absolute inset-2 border border-yellow-300 rounded-full opacity-40"></div>
-                <div className="absolute inset-4 border border-yellow-200 rounded-full opacity-30"></div>
+                {/* Lotus flowers with detailed petals */}
+                <div className="absolute top-32 left-32 w-16 h-16">
+                  <div className="absolute top-2 left-2 w-12 h-12 border-2 border-yellow-400 rounded-full opacity-60">
+                    <div className="absolute inset-1 border border-yellow-300 rounded-full opacity-40"></div>
+                  </div>
+                  {/* Lotus petals */}
+                  <div className="absolute top-4 left-1 w-3 h-6 border border-yellow-400 transform rotate-45 opacity-50"></div>
+                  <div className="absolute top-1 left-4 w-3 h-6 border border-yellow-400 transform rotate-90 opacity-50"></div>
+                  <div className="absolute top-4 left-7 w-3 h-6 border border-yellow-400 transform rotate-135 opacity-50"></div>
+                  <div className="absolute top-7 left-4 w-3 h-6 border border-yellow-400 transform rotate-180 opacity-50"></div>
+                </div>
+
+                {/* Mandala patterns */}
+                <div className="absolute top-80 left-20 w-20 h-20">
+                  <div className="absolute top-2 left-2 w-16 h-16 border-2 border-yellow-400 rounded-full opacity-40">
+                    <div className="absolute inset-2 border border-yellow-300 rounded-full opacity-30"></div>
+                    <div className="absolute inset-4 border border-yellow-200 rounded-full opacity-20"></div>
+                  </div>
+                  <div className="absolute top-6 left-6 w-8 h-8 border border-yellow-400 transform rotate-45 opacity-50"></div>
+                </div>
+
+                {/* Swirling vine patterns */}
+                <div className="absolute top-120 left-16 w-24 h-16">
+                  <div className="absolute top-0 left-0 w-20 h-2 border border-yellow-400 rounded-full opacity-40 transform rotate-12"></div>
+                  <div className="absolute top-2 left-2 w-16 h-2 border border-yellow-400 rounded-full opacity-30 transform rotate-8"></div>
+                  <div className="absolute top-4 left-4 w-12 h-2 border border-yellow-400 rounded-full opacity-40 transform rotate-4"></div>
+                </div>
               </div>
-              <div className="absolute top-24 right-20 w-16 h-24 border border-yellow-400 rounded-full opacity-50">
-                <div className="absolute inset-1 border border-yellow-300 rounded-full opacity-30"></div>
+            </div>
+
+            {/* Right side - Magenta background with detailed dancer patterns */}
+            <div className="absolute right-0 top-0 w-1/2 h-full bg-gradient-to-br from-rose-800 via-pink-700 to-rose-900">
+              <div className="absolute inset-0 opacity-30">
+                {/* Detailed Dancing Woman - Upper Right */}
+                <div className="absolute top-12 right-12 w-24 h-32">
+                  {/* Dancer body */}
+                  <div className="absolute top-8 left-6 w-4 h-16 bg-yellow-400 rounded-full opacity-60"></div>
+                  {/* Dancer head */}
+                  <div className="absolute top-4 left-5 w-6 h-6 bg-yellow-400 rounded-full opacity-70"></div>
+                  {/* Raised arm */}
+                  <div className="absolute top-6 left-2 w-3 h-8 border-2 border-yellow-400 transform rotate-45 opacity-60"></div>
+                  {/* Bent arm */}
+                  <div className="absolute top-8 left-8 w-3 h-6 border-2 border-yellow-400 transform rotate-30 opacity-50"></div>
+                  {/* Flowing skirt */}
+                  <div className="absolute top-20 left-4 w-8 h-12 border-2 border-yellow-400 rounded-full opacity-40"></div>
+                  {/* Traditional jewelry */}
+                  <div className="absolute top-2 left-4 w-2 h-2 border border-yellow-300 rounded-full opacity-60"></div>
+                  <div className="absolute top-2 left-7 w-2 h-2 border border-yellow-300 rounded-full opacity-60"></div>
+                </div>
+
+                {/* Second Dancing Woman - Lower Right */}
+                <div className="absolute top-80 right-16 w-20 h-28">
+                  <div className="absolute top-6 left-4 w-4 h-14 bg-yellow-400 rounded-full opacity-50"></div>
+                  <div className="absolute top-2 left-3 w-5 h-5 bg-yellow-400 rounded-full opacity-60"></div>
+                  <div className="absolute top-4 left-1 w-3 h-6 border-2 border-yellow-400 transform rotate-30 opacity-50"></div>
+                  <div className="absolute top-6 left-6 w-3 h-5 border-2 border-yellow-400 transform rotate-20 opacity-40"></div>
+                  <div className="absolute top-16 left-2 w-6 h-10 border-2 border-yellow-400 rounded-full opacity-30"></div>
+                </div>
+
+                {/* Detailed Lotus flowers */}
+                <div className="absolute top-40 right-40 w-12 h-12">
+                  <div className="absolute top-2 left-2 w-8 h-8 border-2 border-yellow-400 rounded-full opacity-60">
+                    <div className="absolute inset-1 border border-yellow-300 rounded-full opacity-40"></div>
+                  </div>
+                  <div className="absolute top-3 left-1 w-2 h-4 border border-yellow-400 transform rotate-45 opacity-50"></div>
+                  <div className="absolute top-1 left-3 w-2 h-4 border border-yellow-400 transform rotate-90 opacity-50"></div>
+                  <div className="absolute top-3 left-5 w-2 h-4 border border-yellow-400 transform rotate-135 opacity-50"></div>
+                  <div className="absolute top-5 left-3 w-2 h-4 border border-yellow-400 transform rotate-180 opacity-50"></div>
+                </div>
+
+                {/* Paisley patterns */}
+                <div className="absolute top-60 right-32 w-16 h-12">
+                  <div className="absolute top-2 left-2 w-12 h-8 border-2 border-yellow-400 transform rotate-15 opacity-50">
+                    <div className="absolute inset-1 border border-yellow-300 transform rotate-15 opacity-30"></div>
+                  </div>
+                </div>
+
+                {/* Mandala patterns */}
+                <div className="absolute top-100 right-28 w-16 h-16">
+                  <div className="absolute top-2 left-2 w-12 h-12 border-2 border-yellow-400 rounded-full opacity-40">
+                    <div className="absolute inset-1 border border-yellow-300 rounded-full opacity-30"></div>
+                    <div className="absolute inset-2 border border-yellow-200 rounded-full opacity-20"></div>
+                  </div>
+                </div>
+
+                {/* Swirling vine patterns */}
+                <div className="absolute top-140 right-20 w-20 h-12">
+                  <div className="absolute top-0 left-0 w-16 h-2 border border-yellow-400 rounded-full opacity-40 transform rotate-20"></div>
+                  <div className="absolute top-2 left-2 w-12 h-2 border border-yellow-400 rounded-full opacity-30 transform rotate-15"></div>
+                  <div className="absolute top-4 left-4 w-8 h-2 border border-yellow-400 rounded-full opacity-40 transform rotate-10"></div>
+                </div>
               </div>
-              <div className="absolute top-48 right-12 w-18 h-28 border border-yellow-400 rounded-full opacity-70">
-                <div className="absolute inset-1 border border-yellow-300 rounded-full opacity-50"></div>
-              </div>
-              <div className="absolute top-72 right-20 w-14 h-20 border border-yellow-400 rounded-full opacity-40">
-                <div className="absolute inset-1 border border-yellow-300 rounded-full opacity-20"></div>
-              </div>
-              <div className="absolute top-96 right-16 w-22 h-30 border-2 border-yellow-400 rounded-full opacity-60">
-                <div className="absolute inset-2 border border-yellow-300 rounded-full opacity-40"></div>
-                <div className="absolute inset-4 border border-yellow-200 rounded-full opacity-30"></div>
-              </div>
-              
-              {/* Enhanced Lotus and paisley patterns */}
-              <div className="absolute top-40 right-40 w-10 h-10 border border-yellow-400 transform rotate-45 opacity-60">
-                <div className="absolute inset-1 border border-yellow-300 transform rotate-45 opacity-40"></div>
-              </div>
-              <div className="absolute top-60 right-48 w-6 h-6 border border-yellow-400 transform rotate-45 opacity-50">
-                <div className="absolute inset-1 border border-yellow-300 transform rotate-45 opacity-30"></div>
-              </div>
-              <div className="absolute top-80 right-36 w-8 h-8 border border-yellow-400 transform rotate-45 opacity-70">
-                <div className="absolute inset-1 border border-yellow-300 transform rotate-45 opacity-50"></div>
-              </div>
-              
-              {/* Additional traditional motifs */}
-              <div className="absolute top-110 right-44 w-5 h-5 border border-yellow-400 transform rotate-30 opacity-40"></div>
-              <div className="absolute top-130 right-28 w-7 h-7 border border-yellow-400 rounded-full opacity-50"></div>
-              <div className="absolute top-150 right-40 w-3 h-3 border border-yellow-400 transform rotate-60 opacity-60"></div>
-              
-              {/* Paisley patterns */}
-              <div className="absolute top-180 right-32 w-12 h-8 border border-yellow-400 transform rotate-15 opacity-45">
-                <div className="absolute inset-1 border border-yellow-300 transform rotate-15 opacity-25"></div>
-              </div>
-              <div className="absolute top-200 right-48 w-8 h-6 border border-yellow-400 transform rotate-45 opacity-35"></div>
             </div>
           </div>
+        </div>
       </div>
 
       {/* Central Login Form */}
