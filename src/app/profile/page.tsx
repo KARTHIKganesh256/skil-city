@@ -72,10 +72,10 @@ export default function ProfilePage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading...</p>
+          <p className="mt-4 text-gray-600">Loading your profile...</p>
         </div>
       </div>
     );
@@ -83,11 +83,17 @@ export default function ProfilePage() {
 
   if (!user) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100">
+        <div className="text-center bg-white rounded-3xl p-8 shadow-2xl">
+          <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <User className="w-8 h-8 text-red-500" />
+          </div>
           <h1 className="text-2xl font-bold text-gray-800 mb-4">Please Login</h1>
           <p className="text-gray-600 mb-6">You need to be logged in to view your profile.</p>
-          <Button onClick={() => router.push("/login")} className="bg-yellow-500 hover:bg-yellow-600">
+          <Button 
+            onClick={() => router.push("/login")} 
+            className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white font-bold px-8 py-3 rounded-xl"
+          >
             Go to Login
           </Button>
         </div>
@@ -98,6 +104,14 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 py-12 px-4">
       <div className="max-w-2xl mx-auto">
+        {/* Debug info - remove in production */}
+        <div className="mb-4 p-4 bg-blue-100 rounded-lg text-sm">
+          <p><strong>Debug Info:</strong></p>
+          <p>User: {user ? `${user.firstName} ${user.lastName}` : 'Not logged in'}</p>
+          <p>Email: {user?.email || 'N/A'}</p>
+          <p>Loading: {loading ? 'Yes' : 'No'}</p>
+        </div>
+        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

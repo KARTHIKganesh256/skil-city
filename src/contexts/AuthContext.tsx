@@ -29,7 +29,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     // Check for stored user data
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      setUser(JSON.parse(storedUser));
+      try {
+        const userData = JSON.parse(storedUser);
+        setUser(userData);
+        console.log('User loaded from localStorage:', userData);
+      } catch (error) {
+        console.error('Error parsing user data:', error);
+        localStorage.removeItem('user');
+      }
     }
     setLoading(false);
   }, []);
@@ -51,6 +58,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       
       setUser(mockUser);
       localStorage.setItem('user', JSON.stringify(mockUser));
+      console.log('User logged in:', mockUser);
       return true;
     } catch (error) {
       console.error('Login failed:', error);
