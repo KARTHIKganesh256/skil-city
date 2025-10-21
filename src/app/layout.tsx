@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { CartProvider } from "@/contexts/CartContext";
 import { FavoritesProvider } from "@/contexts/FavoritesContext";
+import { AuthProvider } from "@/contexts/AuthContext";
 import { RaindropAnimation } from "@/components/RaindropAnimation";
 
 const inter = Inter({
@@ -43,14 +44,16 @@ export default function RootLayout({
         className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
       >
         <RaindropAnimation />
-        <CartProvider>
-          <FavoritesProvider>
-            <Navigation cartCount={0} />
-            {children}
-            <Footer />
-            <Toaster />
-          </FavoritesProvider>
-        </CartProvider>
+        <AuthProvider>
+          <CartProvider>
+            <FavoritesProvider>
+              <Navigation cartCount={0} />
+              {children}
+              <Footer />
+              <Toaster />
+            </FavoritesProvider>
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

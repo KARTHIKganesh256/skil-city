@@ -10,29 +10,29 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function LoginPage() {
   const router = useRouter();
+  const { login, loading } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const [loading, setLoading] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
 
     try {
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-
-      toast.success("Logged in successfully!");
-      router.push("/");
+      const success = await login(email, password);
+      if (success) {
+        toast.success("Logged in successfully!");
+        router.push("/");
+      } else {
+        toast.error("Invalid credentials");
+      }
     } catch (error) {
-      toast.error("Invalid credentials");
-    } finally {
-      setLoading(false);
+      toast.error("Login failed");
     }
   };
 
@@ -40,11 +40,11 @@ export default function LoginPage() {
     <div className="min-h-screen relative overflow-hidden">
       {/* Background with traditional patterns */}
       <div className="absolute inset-0">
-        {/* Background image with fallback to weaving.jpg */}
+        {/* Background with traditional patterns */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/login.jpg'), url('/weaving.jpg')",
+            backgroundImage: "url('/weaving.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}
