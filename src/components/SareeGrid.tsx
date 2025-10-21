@@ -15,6 +15,11 @@ interface Saree {
   images: string[];
   isBargainAllowed: boolean;
   stock: number;
+  isCustomAvailable: boolean;
+  region: {
+    name: string;
+    state: string;
+  };
 }
 
 interface SareeGridProps {
