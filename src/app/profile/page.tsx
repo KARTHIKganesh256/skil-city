@@ -104,14 +104,6 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-yellow-50 to-amber-100 py-12 px-4">
       <div className="max-w-2xl mx-auto">
-        {/* Debug info - remove in production */}
-        <div className="mb-4 p-4 bg-blue-100 rounded-lg text-sm">
-          <p><strong>Debug Info:</strong></p>
-          <p>User: {user ? `${user.firstName} ${user.lastName}` : 'Not logged in'}</p>
-          <p>Email: {user?.email || 'N/A'}</p>
-          <p>Loading: {loading ? 'Yes' : 'No'}</p>
-        </div>
-        
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

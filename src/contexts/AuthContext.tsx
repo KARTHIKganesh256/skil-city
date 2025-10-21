@@ -32,7 +32,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       try {
         const userData = JSON.parse(storedUser);
         setUser(userData);
-        console.log('User loaded from localStorage:', userData);
       } catch (error) {
         console.error('Error parsing user data:', error);
         localStorage.removeItem('user');
@@ -58,7 +57,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       
       setUser(mockUser);
       localStorage.setItem('user', JSON.stringify(mockUser));
-      console.log('User logged in:', mockUser);
       return true;
     } catch (error) {
       console.error('Login failed:', error);
