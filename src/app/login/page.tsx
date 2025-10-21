@@ -40,15 +40,18 @@ export default function LoginPage() {
     <div className="min-h-screen relative overflow-hidden">
       {/* Background with traditional patterns */}
       <div className="absolute inset-0">
-        {/* Try to use the login background image if it exists, otherwise use CSS patterns */}
+        {/* Background image with fallback to weaving.jpg */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/login.jpg')",
+            backgroundImage: "url('/login.jpg'), url('/weaving.jpg')",
             backgroundSize: "cover",
             backgroundPosition: "center"
           }}
         >
+          {/* Semi-transparent overlay for better text readability */}
+          <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+          
           {/* Fallback: Enhanced traditional patterns if image not found */}
           <div className="absolute inset-0">
             {/* Left side - Green background with detailed peacock patterns */}
