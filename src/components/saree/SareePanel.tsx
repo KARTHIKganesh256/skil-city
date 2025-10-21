@@ -69,9 +69,9 @@ interface Saree {
 
 interface SareePanelProps {
   saree: Saree;
-  onAddToCart: (saree: Saree, options: any) => void;
+  onAddToCart: (saree: Saree, options: Record<string, unknown>) => void;
   onAddToFavorites: (sareeId: string) => void;
-  onBookCustom: (saree: Saree, requirements: any) => void;
+  onBookCustom: (saree: Saree, requirements: Record<string, unknown>) => void;
   onStartBargain: (saree: Saree, offer: number) => void;
 }
 

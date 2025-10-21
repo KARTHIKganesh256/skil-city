@@ -36,9 +36,9 @@ export default async function SareePage({
       <div className="container mx-auto px-4 py-8">
         {/* Breadcrumb */}
         <div className="text-sm text-muted-foreground mb-6">
-          <a href="/" className="hover:text-maroon">
+          <Link href="/" className="hover:text-maroon">
             Home
-          </a>
+          </Link>
           {" / "}
           <a href={`/regions/${saree.region.id}`} className="hover:text-maroon">
             {saree.region.name}

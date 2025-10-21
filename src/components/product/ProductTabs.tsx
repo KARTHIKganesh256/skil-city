@@ -10,7 +10,7 @@ interface ProductTabsProps {
     type: string;
     region: {
       name: string;
-      galleries?: any[];
+      galleries?: unknown[];
     };
   };
 }
@@ -54,7 +54,7 @@ export function ProductTabs({ saree }: ProductTabsProps) {
               <p className="text-muted-foreground">
                 Handwoven by skilled artisans in {saree.region.name}, this saree represents
                 centuries of weaving tradition. Each saree takes days to complete and is a
-                testament to India's rich textile heritage.
+                testament to India&apos;s rich textile heritage.
               </p>
             </div>
           </CardContent>

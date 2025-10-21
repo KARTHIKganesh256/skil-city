@@ -12,7 +12,7 @@ export function Footer() {
               SilkCity
             </h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Preserving India's textile heritage through authentic Dharmavaram silk sarees
+              Preserving India&apos;s textile heritage through authentic Dharmavaram silk sarees
               and traditional craftsmanship.
             </p>
             <div className="flex gap-3">

@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
     const page = parseInt(searchParams.get('page') || '1');
     const limit = parseInt(searchParams.get('limit') || '10');
 
-    const where: any = {};
+    const where: Record<string, string> = {};
     if (userId) where.userId = userId;
     if (status) where.status = status;
 
@@ -85,7 +85,7 @@ export async function POST(request: NextRequest) {
         shippingAddress: shippingAddress || null,
         paymentMethod: paymentMethod || 'RAZORPAY',
         items: {
-          create: items.map((item: any) => ({
+          create: items.map((item: {sareeId: string; quantity: number; price: number; size?: string; customizations?: string}) => ({
             sareeId: item.sareeId,
             quantity: item.quantity,
             price: item.price,

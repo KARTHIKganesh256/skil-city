@@ -2,6 +2,16 @@ import { Hero } from "@/components/Hero";
 import { DharmawaramSpotlight } from "@/components/DharmawaramSpotlight";
 import { RegionCard } from "@/components/RegionCard";
 
+interface Region {
+  id: string;
+  name: string;
+  state: string;
+  description: string | null;
+  imageUrl: string | null;
+  featured: boolean;
+  _count: { sarees: number };
+}
+
 async function getRegions() {
   try {
     // Import prisma directly instead of making HTTP request
@@ -315,7 +325,7 @@ export default async function Home() {
 
           {regions && regions.length > 0 ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {regions.map((region: any, index: number) => (
+              {regions.map((region: Region, index: number) => (
                 <RegionCard key={region.id} region={region} index={index} />
               ))}
             </div>

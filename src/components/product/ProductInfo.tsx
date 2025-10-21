@@ -49,8 +49,8 @@ export function ProductInfo({ saree }: ProductInfoProps) {
       image: "https://placehold.co/200x250/7B2C2C/F6F0EB?text=Saree",
     };
 
-    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-    const existingIndex = cart.findIndex((item: any) => item.id === saree.id);
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]") as Array<{id: string; quantity: number}>;
+    const existingIndex = cart.findIndex((item) => item.id === saree.id);
 
     if (existingIndex >= 0) {
       cart[existingIndex].quantity += quantity;

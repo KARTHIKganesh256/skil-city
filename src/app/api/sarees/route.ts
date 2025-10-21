@@ -132,7 +132,7 @@ export async function GET(request: NextRequest) {
     const skip = (page - 1) * limit;
 
     // Try to fetch from database first
-    const where: any = {};
+    const where: Record<string, unknown> = {};
 
     if (regionId) where.regionId = regionId;
     if (type) where.type = { contains: type, mode: "insensitive" };

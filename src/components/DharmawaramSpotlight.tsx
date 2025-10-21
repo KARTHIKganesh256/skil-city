@@ -96,7 +96,7 @@ export function DharmawaramSpotlight() {
                     </h3>
                     <p className="text-sm text-muted-foreground">
                       A historic town known for its traditional silk weaving industry, 
-                      producing some of India's finest wedding sarees for generations.
+                      producing some of India&apos;s finest wedding sarees for generations.
                     </p>
                   </div>
                 </div>

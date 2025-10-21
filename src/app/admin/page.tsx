@@ -73,7 +73,7 @@ export default function AdminDashboardPage() {
             <h1 className="text-3xl md:text-4xl font-serif font-bold text-maroon">
               Admin Dashboard
             </h1>
-            <p className="text-muted-foreground">Welcome back! Here's your overview</p>
+            <p className="text-muted-foreground">Welcome back! Here&apos;s your overview</p>
           </div>
           <div className="flex gap-3">
             <Button asChild variant="outline">
