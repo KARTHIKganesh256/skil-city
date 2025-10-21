@@ -18,7 +18,7 @@ interface Saree {
   isCustomAvailable: boolean;
   region: {
     name: string;
-    state: string;
+    state: string | null;
   };
 }
 
